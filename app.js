@@ -7,7 +7,7 @@ var resultDiv = document.querySelector("#result");
 
 // console.log(resultDiv)
 
-function clickHandler(){
+function clickHandler(){ 
  // console.log("hurryy!!");
 
 resultDiv.innerText ="nanaaa"+txtInput.value +"nana";
