@@ -2,15 +2,39 @@
 var txtInput = document.querySelector("#txt-input");
 var resultDiv = document.querySelector("#result");
 
- 
-//  resultDiv.innerText = "hey"
 
-// console.log(resultDiv)
+ //
+//var serverURL = "https://api.funtranslations.com/translate/groot.json"
 
-function clickHandler(){ 
- // console.log("hurryy!!");
+var serverURL = "https://api.funtranslations.com/translate/ferb-latin.json"
 
-resultDiv.innerText ="nanaaa"+txtInput.value +"nana";
+function getTranslationURL(key)
+{
+    return serverURL + "?" + "text" + key
+}
+
+function errorHandler(error)
+{
+    console.log("error here", error);
+    alert("Something wrong with seerver try again")
+}
+
+
+function clickHandler()
+{ 
+
+ //resultDiv.innerText ="   "+txtInput.value ;
+    var inputText = txtInput.value;
+
+    fetch(getTranslationURL(inputText))
+    .then(response => response.json())
+    .then(json => {
+        var translatedText = json.contents.translated;
+        resultDiv.innerText = translatedText;
+    })
+
+    .catch(errorHandler)
+
 } ;
 
  btnTranslate.addEventListener("click",  clickHandler)
