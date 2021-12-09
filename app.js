@@ -34,7 +34,7 @@ function clickHandler()
     .then(json => 
     
      {
-         var translatedText = json.contents.translated;
+         var translatedText = json.content.translated;
          resultDiv.innerText = translatedText;
      })
 
