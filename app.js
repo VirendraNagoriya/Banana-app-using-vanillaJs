@@ -6,7 +6,10 @@ var resultDiv = document.querySelector("#result");
  //
 //var serverURL = "https://api.funtranslations.com/translate/groot.json"
 
-var serverURL = "https://api.funtranslations.com/translate/ferb-latin.json"
+//var serverURL = "https://api.funtranslations.com/translate/ferb-latin.json"
+
+
+var serverURL ="https://api.funtranslations.com/translate/minion.json"
 
 function getTranslationURL(key)
 {
@@ -28,16 +31,17 @@ function clickHandler()
 
     fetch(getTranslationURL(inputText))
     .then(response => response.json())
-    .then(json => {
-        var translatedText = json.contents.translated;
-        resultDiv.innerText = translatedText;
-    })
+    .then(json => 
+    
+     {
+         var translatedText = json.contents.translated;
+         resultDiv.innerText = translatedText;
+     })
 
     .catch(errorHandler)
+};
 
-} ;
-
- btnTranslate.addEventListener("click",  clickHandler)
+ btnTranslate.addEventListener("click", clickHandler)
 
 
 
